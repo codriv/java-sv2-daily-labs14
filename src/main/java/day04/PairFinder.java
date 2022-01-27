@@ -13,14 +13,6 @@ public class PairFinder {
         return pair.values().stream().mapToInt(i->i).sum();
     }
 
-    public int findPairsTwo(int[] arr) {
-        int count = 0;
-        for (int num: arr) {
-            count += pairs(arr, num);
-        }
-        return count;
-    }
-
     private int pairs(int[] arr, int num) {
         int count = 0;
         for(int act:arr) {
@@ -29,12 +21,5 @@ public class PairFinder {
             }
         }
         return count / 2;
-    }
-
-    public static void main(String[] args) {
-        int[] tomb = {7, 1, 5, 7, 3, 3, 5, 7, 6, 7};
-        PairFinder pf = new PairFinder();
-        System.out.println(pf.findPairs(tomb));
-        System.out.println(pf.findPairsTwo(tomb));
     }
 }
