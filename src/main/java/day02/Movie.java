@@ -1,5 +1,6 @@
 package day02;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,7 +25,7 @@ public class Movie {
     }
 
     public List<String> getActors() {
-        return actors;
+        return Collections.unmodifiableList(actors);
     }
 
     @Override
