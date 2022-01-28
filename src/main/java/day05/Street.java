@@ -30,7 +30,7 @@ public class Street {
         for (String line: lines) {
             String[] parts = line.split(" ");
             String streetName = parts[0];
-            houses.put(streetName, selectStreet(streetName));
+            houses.put(streetName, selectStreet2(streetName));
         }
         return houses;
     }
@@ -46,6 +46,21 @@ public class Street {
         sum.addAll(oddsInt);
         return sum;
     }
+
+    public List<Integer> selectStreet2(String streetName) {
+        Deque<Integer> evens = new LinkedList<>();
+        Deque<Integer> odds = new LinkedList<>();
+        readFile().stream().filter(line -> line.split(" ")[0].equals(streetName)).forEach(line-> {
+                if (line.split(" ")[1].equals("0")) {
+                    evens.addLast(evens.isEmpty() ? 2 : evens.peekLast() + 2);
+                } else {
+                    odds.addLast(odds.isEmpty() ? 1 : odds.peekLast() + 2);
+                }
+                });
+        evens.addAll(odds);
+        return new ArrayList<>(evens);
+    }
+
 
     public List<Integer> createList(int nums, int zero) {
         List<Integer> newList = new ArrayList<>();
