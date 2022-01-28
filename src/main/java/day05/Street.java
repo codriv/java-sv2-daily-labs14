@@ -54,4 +54,6 @@ public class Street {
         }
         return newList;
     }
+
+//    utcanév alapján páros házszámok darabszámát?
 }
